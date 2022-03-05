@@ -1,0 +1,91 @@
+
+<div class="row">
+    <div class="col-md-12 mx-auto">
+        <div class="car">
+            <div class="card-header text-center">
+                New Order
+            </div>
+            <div class="card-body">
+                <form (submit)="new()" class="form-control">
+                    <div class="form-group">
+                        Seleccione Forma de envio
+                    </div>
+                    <div class="form-group" >
+                        <select name="tipoBodega" [(ngModel)]="tipoBodega" (change)="onChangeTipoBodega($event)">
+                            <option *ngFor="let bodega of lstTipoBodega" [ngValue]="bodega.idTcTipoBodega" >{{bodega.descripcion}}</option>
+                        </select>
+                        
+                    </div>
+                    <div class="form-group">
+                        Tipo de Producto
+                    </div>
+                    <div class="form-group">
+                        <select name="tcTipoProducto" [(ngModel)]="order.tcTipoProducto">
+                            <option *ngFor="let bodega of lstTipoProducto" [ngValue]="bodega.idTcTipoProducto" >{{bodega.descripcion}}</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        Cantidad
+                    </div>
+                    <div class="form-group">
+                        <input type="number" name="cantidadProducto" [(ngModel)]="order.cantidadProducto" min="1" max="10" />
+                    </div>
+
+                    <div class="form-group">
+                        Precio de Envio
+                    </div>
+                    <div class="form-group">
+                        <input type="number" name="precioEnvio" [(ngModel)]="order.precioEnvio"  />
+                    </div>
+
+                    <div class="form-group">
+                       Fecha Entrega
+                    </div>
+                    <div class="form-group">
+                        <input type="date" name="fechaEntrega" [(ngModel)]="order.fechaEntrega"  />
+                    </div>
+
+                    <div class="form-group">
+                        Numero de Guia
+                     </div>
+                     <div class="form-group">
+                         <input type="text" name="numeroGuia" [(ngModel)]="order.numeroGuia"  />
+                     </div>
+
+                     <div class="form-group">
+                        {{outcome}}
+                     </div>
+                     <div class="form-group">
+                         <input type="text" name="placa" [(ngModel)]="order.placa"  />
+                     </div>
+
+                    
+                     <div class="form-group">
+                        Pais
+                     </div>
+                     <div class="form-group" >
+                        <select name="tipoBodega" [(ngModel)]="pais" (change)="onChange($event)">
+                            <option *ngFor="let bodega of lstPais" [ngValue]="bodega.idTcPais" >{{bodega.descripcion}}</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        Bodegas
+                     </div>
+                     <div class="form-group" >
+                        <select name="tsBodega" [(ngModel)]="order.tsBodega" >
+                            <option *ngFor="let bodega of lstBodega" [ngValue]="bodega.idTsBodega" >{{bodega.descripcion}}</option>
+                        </select>
+                    </div>
+
+
+                    
+
+                    <button type="submit" class="btn btn-primary btn-block">Save</button>
+                </form>
+                
+            </div>
+        </div>
+    </div>
+</div>
