@@ -1,0 +1,32 @@
+<div class="row">
+    <div class="col-md-12">
+        <p>Employees</p>
+
+    <button routerLink="/neworder" type="button" class="btn btn-success">New Order</button>
+
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Precio Envio</th>
+            <th scope="col">Precio Descuento</th>
+            <th scope="col">Edit</th>
+            <th scope="col">Delete</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let order of lstOrder">
+            <th>{{order.idTtOrderLogistica}}</th>
+            <td>{{order.precioEnvio}}</td>
+            <td>{{order.precioDescuento}}</td>
+            <td>
+                <button (click)="edit(order.idTtOrderLogistica!)" type="button" class="btn btn-primary">Edit</button> 
+            </td>
+            <td>
+                <button (click)="delete(order.idTtOrderLogistica!)"  type="button" class="btn btn-danger">Delete</button>
+            </td>
+          </tr>      
+        </tbody>
+      </table>
+    </div>
+</div>
